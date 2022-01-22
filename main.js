@@ -8,16 +8,17 @@ const MeuNomeCtx = React.createContext();
                         React.createElement(Componente2)
                     )
                 ) 
-            ) 
+            )
+            return () 
         }
 
         function Componente2() {
-            let nome = 'sporgeon'
+/*            let nome = 'sporgeon'
             return React.createElement('div', null,
-                React.createElement(Componente3, {dados: nome}))
+                React.createElement(Componente3, {dados: nome}))*/
             return (
                 <div>
-                    <Componente3 dados="nome"/>
+                    <Componente3/>
                 </div>
             )
         }
