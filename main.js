@@ -9,7 +9,13 @@ const MeuNomeCtx = React.createContext();
                     )
                 ) 
             )
-            return () 
+            return (
+                <MeuNomeCtx.Provider value={ valorRepassado }>
+                    <div className="componente-1">
+                        <Componente2/>
+                    </div>
+                </MeuNomeCtx.Provider>
+            ) 
         }
 
         function Componente2() {
