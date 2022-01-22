@@ -2,13 +2,13 @@ const MeuNomeCtx = React.createContext();
 
         function Componente1() {
             const valorRepassado = 'o que esta aqui vai?'
-            return (
+/*            return (
                 React.createElement(MeuNomeCtx.Provider, { value: valorRepassado },
                     React.createElement('div', { className: 'componente-1' },
                         React.createElement(Componente2)
                     )
                 ) 
-            )
+            )*/
             return (
                 <MeuNomeCtx.Provider value={ valorRepassado }>
                     <div className="componente-1">
@@ -29,7 +29,7 @@ const MeuNomeCtx = React.createContext();
             )
         }
 
-        function Componente3(props) {
+        function Componente3() {
 /*            return (
                 React.createElement('div', { className: 'componente-3'}, 
                     React.createElement('p', null, props.dados),
@@ -40,7 +40,7 @@ const MeuNomeCtx = React.createContext();
             )*/
             return (
                 <div className="componente-3">
-                    <p>{ props.dados }</p>
+                    
                     <div>
                         <Componente4/>
                     </div>
