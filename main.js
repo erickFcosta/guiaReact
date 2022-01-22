@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-    <div id="app"></div>
-
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-
-    <script></script>
-<!--
-    <script>
-
-        const MeuNomeCtx = React.createContext();
+const MeuNomeCtx = React.createContext();
 
         function Componente1() {
             const valorRepassado = 'o que esta aqui vai?'
@@ -34,21 +15,34 @@
             let nome = 'sporgeon'
             return React.createElement('div', null,
                 React.createElement(Componente3, {dados: nome}))
+            return (
+                <div>
+                    <Componente3 dados="nome"/>
+                </div>
+            )
         }
 
         function Componente3(props) {
-            return (
+/*            return (
                 React.createElement('div', { className: 'componente-3'}, 
                     React.createElement('p', null, props.dados),
                     React.createElement('div', null, 
                         React.createElement(Componente4)
                     )
                 )
+            )*/
+            return (
+                <div className="componente-3">
+                    <p>{ props.dados }</p>
+                    <div>
+                        <Componente4/>
+                    </div>
+                </div>
             )
         }
 
         function Componente4() {
-            return (
+/*            return (
                 React.createElement(MeuNomeCtx.Consumer, null,
                     (valorRepassado2)=> (
                         React.createElement('div', { className: 'componente-4' },
@@ -57,20 +51,34 @@
                         )
                     )
                 )
+            )*/
+            return (
+                <MeuNomeCtx.Consumer>
+                    {
+                        (valorRepassado2) => (
+                            <div className="componente-4">
+                                <p>{valorRepassado2}</p>
+                                <h3>finalizando novamente</h3>
+                            </div>
+                        )
+                    }
+                </MeuNomeCtx.Consumer>
             )
         }
 
         function MeuComponente() {
-            return React.createElement('div', null, 'MeuComponente',
-                React.createElement(Componente1))
+/*            return React.createElement('div', { id: 'componentes'}, 'MeuComponente',
+                React.createElement(Componente1))*/
+            return (
+                <div id="componentes">
+                    <Componente1/>
+                </div>
+            )
         }
 
 //determinado a DOM
         ReactDOM.render(
-            React.createElement(MeuComponente),
+//            React.createElement(MeuComponente),
+            <MeuComponente/>,
             document.getElementById('app')
         )
-    </script>
--->
-</body>
-</html>
